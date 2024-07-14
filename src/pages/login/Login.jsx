@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import './login.scss'
 
 export default function Login()
@@ -25,7 +26,7 @@ export default function Login()
                     />
                     <button type="submit" className="login__btn">Sign In</button>
                 </form>
-                <h4>I don’t have an account? <span>Sign Up Now</span></h4>
+                <h4>I don’t have an account? <NavLink to="/register"><span>Sign Up Now</span></NavLink></h4>
             </div>
         </div>
     </>
