@@ -18,7 +18,7 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<NavLayout />}>
+      {/* <Route path="/" element={<NavLayout />}> */}
         <Route index element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/detail" element={<Detail />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
-      </Route >
+      {/* </Route > */}
     </Routes>
     </>
   )

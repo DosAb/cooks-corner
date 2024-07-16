@@ -1,21 +1,38 @@
+import { useFormik } from "formik";
 import { NavLink } from 'react-router-dom'
+import { loginSchema } from "../../schemas";
 import './login.scss'
 
 export default function Login()
 {
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting,
+    } = useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+      validationSchema: loginSchema,
+      onSubmit: (values, actions) => {
+        console.log("submit");
+      },
+    });
+
     return <>
         <div className="login">
             <div className="login__title-container">
                 <h1 className="login__title">Welcome Back  <br /> To <span> CooksCorner</span> </h1>
             </div>
             <div className="login__form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Gmail</label>
                     <input
-                        type="text"
-                        id="login"
+                        type="email"
+                        id="email"
                         placeholder="your email"
-                        name="login"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
                     />
                     <label htmlFor="password">Password</label>
                     <input
@@ -23,6 +40,9 @@ export default function Login()
                         id="password"
                         placeholder="your password"
                         name="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
                     />
                     <button type="submit" className="login__btn">Sign In</button>
                 </form>

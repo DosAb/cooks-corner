@@ -29,11 +29,10 @@ export const registerSchema = yup.object().shape({
 })
 
 export const loginSchema = yup.object().shape({
-    login: yup
+    email: yup
         .string()
-        .min(4, 'Минимум 4 символа')
-        .matches(/^[A-Za-z]*$/, 'Только латинские буквы разрешены')
-        .required('Требуется логин'),
+        .email("Not valid email")
+        .required("Email is required"),
         
     password: yup
         .string()
