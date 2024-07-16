@@ -1,9 +1,14 @@
+import ProfileModule from "../../components/profileModule/ProfileModule"
+
 import RecipeList from "../../components/recipe/RecipeList"
 import idiotImg from "/imgs/idiot.jpg"
 import "./profile.scss"
+import { useState } from "react"
 
 export default function Profile()
 {
+    const [showModule, setShowModule] = useState(false)
+
     return <>
         <div className="profile">
             <div className="profile__info">
@@ -29,6 +34,7 @@ export default function Profile()
                 </div>
             </div>
             <RecipeList />
+            {showModule && <ProfileModule />}
         </div>
     </>
 }

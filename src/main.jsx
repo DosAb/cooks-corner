@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import store from './store/store.js';
+import store from './redux/store/store.js';
 import App from './App.jsx'
 
 const queryClient = new QueryClient()
