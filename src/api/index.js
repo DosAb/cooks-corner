@@ -7,9 +7,14 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use((config)=>{
-  config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`
-})
+// instance.interceptors.request.use((config)=>{
+//   config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`
+// })
 
 export const postRegister = (data) => instance.post(`/users/signup/`, data);
 export const postLogin = (data) => instance.post(`/users/login/`, data);
+export const getCategory = (token) => instance.post(`/recipes/by-category/?category=Breakfast&page=1&limit=10`,{
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
