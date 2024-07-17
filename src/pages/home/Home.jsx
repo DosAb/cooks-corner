@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import RecipeList from "../../components/recipe/RecipeList"
 
 import "./home.scss"
@@ -6,6 +6,9 @@ import "./home.scss"
 export default function Home()
 {
     const [name, setName] = useState("Konfeta")
+    useEffect(()=>{
+        
+    },[])
 
 
     return <>

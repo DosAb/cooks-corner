@@ -1,10 +1,25 @@
 import { useFormik } from "formik";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { loginSchema } from "../../schemas";
+import { postLogin } from "../../api";
 import './login.scss'
 
 export default function Login()
 {
+    const navigate = useNavigate()
+
+    const handleLogin = async (data) =>{
+        try {
+            const response = await postLogin(data);
+            console.log(response.data);
+            navigate('/home')
+        } catch (err) {
+            if (!err?.response) {
+            console.log(err);
+            }
+        }
+    }
+
     const { values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting,
     } = useFormik({
       initialValues: {
@@ -14,6 +29,11 @@ export default function Login()
       validationSchema: loginSchema,
       onSubmit: (values, actions) => {
         console.log("submit");
+        const loginData = {
+            email: values.email,
+            password: values.password
+        }
+        handleLogin(loginData)
       },
     });
 
