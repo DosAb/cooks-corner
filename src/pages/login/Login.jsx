@@ -13,6 +13,7 @@ export default function Login()
             const response = await postLogin(data);
             console.log(response.data);
             localStorage.setItem("token", response.data.access)
+            localStorage.setItem("refreshToken", response.data.refresh)
             navigate('/home')
         } catch (err) {
             if (!err?.response) {
