@@ -35,7 +35,6 @@ export default function Register()
             password: values.password,
             username: values.login,
             password_confirm: values.confirmPassword,
-            url: "https://cooks-corner.vercel.app"
         }
         handleRegister(registerData)
         console.log("submit");
